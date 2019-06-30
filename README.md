@@ -1,5 +1,9 @@
 # Notebooks
 
+## Final Run
+
+Run with the final attribute selection, comparing the algorithms and show the accuracies of the selected contractor.
+
 ## CPV Descriptive
 
 Contains stats cpv division, categories, groups and corresponding invitations to tender
