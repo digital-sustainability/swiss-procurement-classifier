@@ -1,0 +1,16 @@
+' Edit at planttext.com or get the app at plantuml.com
+
+@startuml
+digraph G {
+"1. Identify Business
+Problem" ->
+"2. Data Acquisition" -> 
+"3. Process / Clean
+Data" ->
+"4. Exploratory Analysis" ->
+"5. Model Selection" ->
+"6. Model Training" ->
+"7. Model Evaluation" ->
+"5. Model Selection"
+} 
+@enduml

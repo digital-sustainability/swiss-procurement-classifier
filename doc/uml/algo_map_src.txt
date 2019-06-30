@@ -1,0 +1,49 @@
+' Edit at planttext.com or get the app at plantuml.com
+
+
+
+@startuml
+start
+if (Dimensionality Reduction) then (yes)
+  :<b>Unsupervised Learning</b>:
+       Demension Reduction;
+  if (...) then (a)
+  else (b)
+  endif
+  stop
+else (no)
+    if (Responses available) then (yes)
+        if (Predict numeric value) then (yes)
+            :<b>Supervised Learning</b>:
+                     Regression;
+            if (...) then (a)
+            else (b)
+            endif
+            stop
+        else (no)
+        :<b>Supervised Learning:</b>
+                Classification;
+            if (Speed or Accuracy) then (Accuracy)
+                :Select between
+                * //Kernel SVM//,
+                * //Random Forest//,
+                * //Neural Network//,
+                * //Gradient Boosting Tree//;
+                stop
+            else (Speed)
+                if (...) then (a)
+                else (b)
+                endif
+                stop
+            endif
+        endif
+    else (no)
+    :<b>Unsupervised Learning</b>:
+                 Clustering;
+    if (...) then (a)
+    else (b)
+    endif
+    stop
+    endif
+endif
+@enduml

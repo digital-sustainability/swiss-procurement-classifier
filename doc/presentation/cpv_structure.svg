@@ -1,0 +1,23 @@
+<svg width="272" height="128" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="130" width="274" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <line stroke="#FFAC8D" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_12" y2="28.667947" x2="208.501075" y1="28.667947" x1="192.165886" stroke-width="20" fill="none"/>
+  <line stroke="#D3BEE7" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_16" y2="28.667947" x2="184.50124" y1="28.667947" x1="136.166292" stroke-width="20" fill="none"/>
+  <line stroke="#E6C36A" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_8" y2="28.667948" x2="84.501977" y1="28.667948" x1="68.166787" fill-opacity="null" stroke-width="20" fill="none"/>
+  <line stroke="#9ACEE6" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_11" y2="28.667947" x2="129.834982" y1="28.667947" x1="113.499793" stroke-width="20" fill="none"/>
+  <line stroke="#8CD79F" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_10" y2="28.66795" x2="107.16848" y1="28.66795" x1="90.833291" fill-opacity="null" stroke-width="20" fill="none"/>
+  <line stroke="#FFB27C" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_7" y2="28.66761" x2="61.83553" y1="28.771801" x1="28.833779" stroke-width="20" fill="none"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_15" y="49.292101" x="29.334496" stroke-width="0" stroke="#FFB27C" fill="#FFB27C">Division</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_9" y="37.333057" x="29.66857" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">XX X X X XXX-X</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_17" y="60.625352" x="69.334204" stroke-width="0" stroke="#FFB27C" fill="#E6C36A">Group</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_18" y="73.958588" x="91.334043" stroke-width="0" stroke="#FFB27C" fill="#8CD79F">Class</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_19" y="86.625162" x="114.667206" stroke-width="0" stroke="#FFB27C" fill="#84D3DB">Category</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_20" y="99.958398" x="137.333707" stroke-width="0" stroke="#FFB27C" fill="#D3BEE7">Subcategory</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="12" id="svg_21" y="113.291634" x="193.99996" stroke-width="0" stroke="#FFB27C" fill="#FFAC8D">Checksum</text>
+ </g>
+</svg>

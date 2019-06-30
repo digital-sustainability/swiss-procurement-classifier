@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Alex Kräuchi &amp; Jan Dietrich">
+  <title>Reinventing Project Selection in the Swiss Procurement Process</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="test.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'http://lab.hakim.se/reveal-js/css/print/pdf.css' : 'http://lab.hakim.se/reveal-js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Reinventing Project Selection in the Swiss Procurement Process</h1>
+  <p class="author">Alex Kräuchi &amp; Jan Dietrich</p>
+  <p class="date">17. Dezember 2018</p>
+</section>
+
+<section id="swiss-procurement" class="slide level1">
+<h1>Swiss Procurement</h1>
+<ul>
+<li>&gt; 230’000 CHF public bidding</li>
+<li><a href="https://www.simap.ch" class="uri">https://www.simap.ch</a> official web platform</li>
+<li><a href="http://www.digitale-nachhaltigkeit.unibe.ch">FDN</a> Simap Database:
+<ul>
+<li>Data Crawling by FDN</li>
+</ul></li>
+<li><a href="https://beschaffungsstatistik.ch" class="uri">https://beschaffungsstatistik.ch</a></li>
+</ul>
+<p><sup id="simap-database"><a href="#/lib-simap-database">1</a></sup></p>
+</section>
+<section id="stats" class="slide level1">
+<h1>Stats</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>avg. last 2 years</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>invitations to tender</td>
+<td>9’000</td>
+</tr>
+<tr class="even">
+<td>awards</td>
+<td>7’500</td>
+</tr>
+<tr class="odd">
+<td>value of awards (CHF)</td>
+<td>14’000’000’000</td>
+</tr>
+</tbody>
+</table>
+<p><sup id="simap-database"><a href="#/lib-simap-database">1</a></sup></p>
+</section>
+<section id="cpv-code" class="slide level1">
+<h1>CPV Code</h1>
+<p><img data-src="./presentation/cpv.png" /></p>
+<ul>
+<li>45000000 - Bauarbeiten
+<ul>
+<li>45300000 - Bauinstallationsarbeiten
+<ul>
+<li>45310000 - Installateurarbeiten</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="problem-description" class="slide level1">
+<h1>Problem description</h1>
+<p>illustrative example: <a href="https://www.simap.ch" class="uri">https://www.simap.ch</a></p>
+</section>
+<section id="aim" class="slide level1">
+<h1>Aim</h1>
+<ul>
+<li>Imitate and possibly improve the current process by automating it</li>
+<li>Use a data driven approach</li>
+<li><strong>Business value</strong>: Reduce Effort, get better results</li>
+</ul>
+</section>
+<section id="methodology-tools" class="slide level1">
+<h1>Methodology &amp; Tools</h1>
+<ul>
+<li>Data as a base</li>
+<li>Specifiy a learning approach</li>
+<li>Agree on a machine learning algorithm</li>
+<li>Tools:
+<ul>
+<li>Python (Pandas, Numpy, Scikit Learn)</li>
+<li>Jupyter Notebook</li>
+</ul></li>
+</ul>
+<p><a href="https://github.com/scikit-learn/scikit-learn"><img src="./presentation/sklearn-logo.png"></a></p>
+</section>
+<section id="data-presentation" class="slide level1">
+<h1>Data presentation</h1>
+<p>FDN Simap Database</p>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>no. of rows in DB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tender</td>
+<td>61’703</td>
+</tr>
+<tr class="even">
+<td>awards</td>
+<td>47’958</td>
+</tr>
+<tr class="odd">
+<td>bidder*</td>
+<td>10’237</td>
+</tr>
+<tr class="even">
+<td>contractor*</td>
+<td>2’794</td>
+</tr>
+</tbody>
+</table>
+<p>* unique: grouped by institution</p>
+<p><sup id="simap-database"><a href="#/lib-simap-database">1</a></sup></p>
+</section>
+<section id="relations" class="slide level1">
+<h1>Relations</h1>
+<p><img src="./presentation/simap-database.png"></p>
+</section>
+<section id="machine-learning" class="slide level1">
+<h1>Machine learning</h1>
+<ul>
+<li>“<em>Machine learning</em> is a method of data analysis that automates analytical model building.” <sup><a href="#/lib-ml">2</a></sup></li>
+<li>“[…] idea that systems can learn from data, identify patterns and make decisions with minimal human intervention.” <sup id="ml"><a href="#/lib-ml">2</a></sup></li>
+<li>Supervised &amp; Unsupervised Learning</li>
+</ul>
+</section>
+<section id="situational-assessment" class="slide level1">
+<h1>Situational Assessment</h1>
+<p><img src="./presentation/simap-database.png"></p>
+<p><sup id="simap-database"><a href="#/lib-simap-database">1</a></sup></p>
+</section>
+<section id="algorithm-choice" class="slide level1">
+<h1>Algorithm Choice</h1>
+<ul>
+<li>“No Free Lunch” theorem <sup id="nofreelunch"><a href="#/lib-nofreelunch">3</a></sup></li>
+</ul>
+<p><img src="./presentation/algo-map.png"></p>
+<p><sup id="algo-map"><a href="#/lib-algo-map">4</a></sup></p>
+</section>
+<section id="decision-tree" class="slide level1">
+<h1>Decision Tree</h1>
+<p><img src="./presentation/decision-tree.png"></p>
+<p><sup id="decision-tree"><a href="#/lib-decision-tree">5</a></sup></p>
+</section>
+<section id="random-forest" class="slide level1">
+<h1>Random Forest</h1>
+<p><img src="./presentation/random-forest.png"></p>
+<p><sup id="random-forest"><a href="#/lib-random-forest">6</a></sup></p>
+</section>
+<section id="success-metrics" class="slide level1">
+<h1>Success Metrics</h1>
+<p><img data-src="./presentation/confusion.png" width="600" /></p>
+<p><sup id="random-forest"><a href="#/lib-confusion">7</a></sup></p>
+</section>
+<section id="model-generation-process" class="slide level1">
+<h1>Model generation process</h1>
+<p><strong>iterative process ⭮</strong></p>
+<ol type="1">
+<li>select and prepare attributes</li>
+<li>train model</li>
+<li>model evaluation</li>
+</ol>
+</section>
+<section id="current-progress" class="slide level1">
+<h1>Current progress</h1>
+<p><a href="http://localhost:8888/notebooks/Test%20Suite.ipynb">jupyter notebook</a></p>
+</section>
+<section id="section" class="slide level1">
+<h1></h1>
+<ul>
+<li>To test:
+<ul>
+<li>Tenders from similar domains</li>
+<li>Bidders with small set of positive responses</li>
+</ul></li>
+</ul>
+</section>
+<section id="sources" class="slide level1">
+<h1>Sources</h1>
+<p><a name="lib-simap-database">1</a>: <a href="http://beschaffungsstatistik.ch" class="uri">http://beschaffungsstatistik.ch</a> <a href="#/simap-database">↩</a></p>
+<p><a name="lib-ml">3</a>: <a href="https://www.sas.com/en_us/insights/analytics/machine-learning.html" class="uri">https://www.sas.com/en_us/insights/analytics/machine-learning.html</a> <a href="#/ml">↩</a></p>
+<p><a name="lib-nofreelunch">4</a>: <a href="https://elitedatascience.com/machine-learning-algorithms?imm_mid=0fa832&amp;cmp=em-data-na-na-newsltr_20180117" class="uri">https://elitedatascience.com/machine-learning-algorithms?imm_mid=0fa832&amp;cmp=em-data-na-na-newsltr_20180117</a> <a href="#/nofreelunch">↩</a></p>
+<p><a name="lib-algo-map">5</a>: <a href="https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use" class="uri">https://blogs.sas.com/content/subconsciousmusings/2017/04/12/machine-learning-algorithm-use</a> <a href="#/algo-map">↩</a></p>
+<p><a name="lib-decision-tree">6</a>: <a href="https://www.datacamp.com/community/tutorials/decision-trees-R" class="uri">https://www.datacamp.com/community/tutorials/decision-trees-R</a> <a href="#/decision-tree">↩</a></p>
+<p><a name="lib-random-forest">7</a>: <a href="https://www.researchgate.net/figure/Architecture-of-the-random-forest-model_fig1_301638643" class="uri">https://www.researchgate.net/figure/Architecture-of-the-random-forest-model_fig1_301638643</a> <a href="#/random-forest">↩</a></p>
+<p><a name="lib-confusion">7</a>: <a href="https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62" class="uri">https://towardsdatascience.com/understanding-confusion-matrix-a9ad42dcfd62</a> <a href="#/confiusion">↩</a></p>
+</section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

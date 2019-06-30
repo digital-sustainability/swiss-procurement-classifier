@@ -1,0 +1,6 @@
+[database]
+connector = mysqldb
+user = user
+host = host
+password = password
+database = simap
